@@ -5,7 +5,7 @@ mass_haleu = 5500  # kg
 density_haleu = 18700  # kg/m^3
 
 # Initial values for height and diameter (these will be updated by the update_config.py script)
-height_cylinder = 0.474482  # m (calculated value)
+height_cylinder = 0.421930  # m (calculated value)
 diameter_cylinder = 1.0  # m (calculated value)
 
 diameter_channel = 0.05  # m
@@ -23,7 +23,7 @@ mass_haleu = 5500  # kg
 density_haleu = 18700  # kg/m^3
 
 # Initial values for height and diameter (these will be updated by the update_config.py script)
-height_cylinder = 0.474482  # m (calculated value)
+height_cylinder = 0.421930  # m (calculated value)
 diameter_cylinder = 1.0  # m (calculated value)
 
 diameter_channel = 0.05  # m
@@ -35,18 +35,7 @@ C_d = 1.28  # drag coefficient for a flat plate (approximate)
 initial_area = 0.5  # m^2
 
 # Define additional areas and their corresponding mass flow rates
-additional_areas_and_mfr = [
-    (0.1, 4000),    # (additional area, mfr) pair
-    (0.2, 3800),
-    (0.3, 3600),
-    (0.4, 3400),
-    (0.5, 3200),
-    (0.6, 3000),
-    (0.7, 2800),
-    (0.8, 2700),
-    (0.9, 2600),
-    (1.0, 2500)
-]
+
 additional_areas_and_mfr = [
     (0, 10000),    # (additional area, mfr) pair
     (0.1, 9000),
