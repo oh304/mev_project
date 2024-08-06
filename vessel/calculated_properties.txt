@@ -1,0 +1,8 @@
+volume_haleu=0.294118
+volume_empty_rods_total=0.034602
+volume_sodium_rods_total=0.017301
+effective_volume_cylinder=0.346021
+radius_cylinder=0.500000
+height_cylinder=0.440567
+total_effective_area=0.824668
+area_cylinder=0.785398
