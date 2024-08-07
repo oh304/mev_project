@@ -15,14 +15,14 @@ def read_results(file_path):
                     mfr = float(values[0].strip())
                     total_area = float(values[1].strip())
                     velocity = float(values[2].strip())
-                    additional_buoyant_force = float(values[6].strip())
-
-                    if 5000 <= mfr <= 5800 and -10000 <= additional_buoyant_force <= 10000:
+                    additional_buoyant_force_needed = float(values[6].strip())  # Use the correct column
+                    
+                    if 200 <= mfr <= 1000 and -500 <= additional_buoyant_force_needed <= 500:
                         data.append({
                             'Mass Flow Rate (kg/s)': mfr,
                             'Total Area (m^2)': total_area,
                             'Velocity (m/s)': velocity,
-                            'Additional Buoyant Force (N)': additional_buoyant_force
+                            'Additional Buoyant Force Needed (N)': additional_buoyant_force_needed
                         })
                 except (ValueError, IndexError):
                     continue
@@ -32,33 +32,20 @@ def read_results(file_path):
 df = read_results('buoyancy_results.txt')
 
 # Ensure correct filtering and sorting
-df = df[df['Mass Flow Rate (kg/s)'].between(5000, 5800)]
-df = df[df['Additional Buoyant Force (N)'].between(-10000, 10000)]
+df = df[df['Mass Flow Rate (kg/s)'].between(200, 1000)]
+df = df[df['Additional Buoyant Force Needed (N)'].between(-65, 15)]
 df = df.sort_values(by=['Mass Flow Rate (kg/s)', 'Total Area (m^2)'])
 
 # Remove duplicate points
 df = df.drop_duplicates(subset=['Mass Flow Rate (kg/s)', 'Total Area (m^2)'])
 
-# Explicitly select specific data points for MFR = 5000
-def select_specific_points(df):
-    if 5000 in df['Mass Flow Rate (kg/s)'].unique():
-        df_5000 = df[df['Mass Flow Rate (kg/s)'] == 5000]
-        indices = [1, 2, 3, 5, 6, 7]  # 2nd, 3rd, 4th, 6th, and 7th points (0-based index)
-        df_5000 = df_5000.iloc[indices]
-        df = df[df['Mass Flow Rate (kg/s)'] != 5000]
-        df = pd.concat([df, df_5000])
-    return df
-
-# Filter specific points for MFR = 5000
-df = select_specific_points(df)
-
 # Plot configuration
 fig, ax1 = plt.subplots(figsize=(10, 6))
 
-# Plot additional buoyant force vs. total area for each mass flow rate
+# Plot additional buoyant force needed vs. total area for each mass flow rate
 for mfr in sorted(df['Mass Flow Rate (kg/s)'].unique()):
     df_mfr = df[df['Mass Flow Rate (kg/s)'] == mfr]
-    ax1.plot(df_mfr['Total Area (m^2)'], df_mfr['Additional Buoyant Force (N)'], marker='o', linestyle='-', label=f'MFR {mfr} kg/s')
+    ax1.plot(df_mfr['Total Area (m^2)'], df_mfr['Additional Buoyant Force Needed (N)'], marker='o', linestyle='-', label=f'MFR {mfr} kg/s')
 
 # Add horizontal dashed line for 'additional buoyancy needed = 0'
 ax1.axhline(0, color='gray', linestyle='--', linewidth=1, label='Additional Buoyancy Needed = 0')

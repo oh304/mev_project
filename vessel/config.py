@@ -5,60 +5,64 @@ mass_haleu = 5500  # kg
 density_haleu = 18700  # kg/m^3
 
 # Initial values for height and diameter (these will be updated by the update_config.py script)
-height_cylinder = 0.416091  # m (calculated value)
+height_cylinder = 0.419588  # m (calculated value)
 diameter_cylinder = 1.0  # m (calculated value)
-height_float = 4  # m
 
 diameter_channel = 0.05  # m
-number_of_empty_rods = 20  # Number of empty space rods
+
 number_of_sodium_flow_rods = 20  # Number of rods where sodium flows through
-density_sodium = 927  # kg/m^3
+density_sodium = 10007   # kg/m^3
 g = 9.81  # m/s^2
 C_d = 1.28  # drag coefficient for a flat plate (approximate)
 initial_area = 0.8  # m^2
 
-# Define additional areas and their corresponding mass flow rates for each scenario
-additional_areas_and_mfr_5000 = [
-    (0, 5000),
-    (0.04, 5000),
-    (0.08, 5000),
-    (0.12, 5000),
-    (0.16, 5000),
-    (0.20, 5000)
+# number_of_empty_rods = 20  # Number of empty space rods
+# height_float = 4  # m
+
+number_of_empty_rods = 23  # Number of empty space rods
+height_float = 0.28  # m
+
+additional_areas_and_mfr_200 = [
+    (0, 200),
+    (0.04, 200),
+    (0.08, 200),
+    (0.12, 200),
+    (0.16, 200),
+    (0.20, 200)
 ]
 
-additional_areas_and_mfr_5200 = [
-    (0, 5200),
-    (0.04, 5200),
-    (0.08, 5200),
-    (0.12, 5200),
-    (0.16, 5200),
-    (0.20, 5200)
+additional_areas_and_mfr_400 = [
+    (0, 400),
+    (0.04, 400),
+    (0.08, 400),
+    (0.12, 400),
+    (0.16, 400),
+    (0.20, 400)
 ]
 
-additional_areas_and_mfr_5400 = [
-    (0, 5400),
-    (0.04, 5400),
-    (0.08, 5400),
-    (0.12, 5400),
-    (0.16, 5400),
-    (0.20, 5400)
+additional_areas_and_mfr_600 = [
+    (0, 600),
+    (0.04, 600),
+    (0.08, 600),
+    (0.12, 600),
+    (0.16, 600),
+    (0.20, 600)
 ]
 
-additional_areas_and_mfr_5600 = [
-    (0, 5600),
-    (0.04, 5600),
-    (0.08, 5600),
-    (0.12, 5600),
-    (0.16, 5600),
-    (0.20, 5600)
+additional_areas_and_mfr_800 = [
+    (0, 800),
+    (0.04, 800),
+    (0.08, 800),
+    (0.12, 800),
+    (0.16, 800),
+    (0.20, 800)
 ]
 
-additional_areas_and_mfr_5800 = [
-    (0, 5800),
-    (0.04, 5800),
-    (0.08, 5800),
-    (0.12, 5800),
-    (0.16, 5800),
-    (0.20, 5800)
+additional_areas_and_mfr_1000 = [
+    (0, 1000),
+    (0.04, 1000),
+    (0.08, 1000),
+    (0.12, 1000),
+    (0.16, 1000),
+    (0.20, 1000)
 ]

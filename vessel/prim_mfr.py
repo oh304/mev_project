@@ -1,5 +1,3 @@
-# prim_mfr.py
-
 import math
 import config
 from calculate_reactor_properties import calculate_reactor_properties
@@ -78,8 +76,9 @@ def calculate_and_print_results(mass_flow_rate, additional_areas):
             file.write(f"{mass_flow_rate:<20} | {total_area:<15.2f} | {velocity:<15.2f} | {total_buoyant_force:<15.2f} | {drag_force:<15.2f} | {total_upward_force:<20.2f} | {additional_buoyant_force:<25.2f}\n")
 
 # Calculate results for each set of mass flow rates and additional areas
-calculate_and_print_results(5000, [area for area, _ in config.additional_areas_and_mfr_5000])
-calculate_and_print_results(5200, [area for area, _ in config.additional_areas_and_mfr_5200])
-calculate_and_print_results(5400, [area for area, _ in config.additional_areas_and_mfr_5400])
-calculate_and_print_results(5600, [area for area, _ in config.additional_areas_and_mfr_5600])
-calculate_and_print_results(5800, [area for area, _ in config.additional_areas_and_mfr_5800])
+
+calculate_and_print_results(200, [area for area, _ in config.additional_areas_and_mfr_200])
+calculate_and_print_results(400, [area for area, _ in config.additional_areas_and_mfr_400])
+calculate_and_print_results(600, [area for area, _ in config.additional_areas_and_mfr_600])
+calculate_and_print_results(800, [area for area, _ in config.additional_areas_and_mfr_800])
+calculate_and_print_results(1000, [area for area, _ in config.additional_areas_and_mfr_1000])
