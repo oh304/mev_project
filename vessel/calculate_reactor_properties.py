@@ -19,7 +19,7 @@ def calculate_reactor_properties():
     # Total volume of all sodium flow rods
     volume_sodium_rods_total = config.number_of_sodium_flow_rods * volume_sodium_rod
 
-    # Effective volume of the cylinder (including all rods)
+    # Effective volume of the cylinder (excluding channels)
     effective_volume_cylinder = volume_haleu + volume_empty_rods_total + volume_sodium_rods_total
 
     # Calculate the radius of the cylinder (volume = pi * r^2 * h)
@@ -37,6 +37,10 @@ def calculate_reactor_properties():
     # Total effective area for sodium flow
     total_effective_area = area_cylinder + area_sodium_channels
 
+    # Calculate the volume of the buoyant float
+    height_float = config.height_float
+    volume_buoyant_float = math.pi * (radius_cylinder ** 2) * height_float
+
     properties = {
         "volume_haleu": volume_haleu,
         "volume_empty_rods_total": volume_empty_rods_total,
@@ -45,7 +49,8 @@ def calculate_reactor_properties():
         "radius_cylinder": radius_cylinder,
         "height_cylinder": height_cylinder,
         "total_effective_area": total_effective_area,
-        "area_cylinder": area_cylinder
+        "area_cylinder": area_cylinder,
+        "volume_buoyant_float": volume_buoyant_float
     }
 
     # Write properties to a text file
